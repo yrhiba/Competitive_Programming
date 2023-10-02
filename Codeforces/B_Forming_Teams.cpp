@@ -1,3 +1,8 @@
+/*
+problem link
+http://codeforces.com/contest/216/problem/B
+*/
+
 #include <iostream>
 #include <vector>
 #include <string>
