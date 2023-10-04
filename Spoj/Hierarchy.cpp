@@ -1,3 +1,8 @@
+/*
+link to the problem:
+https://www.spoj.com/problems/MAKETREE/
+*/
+
 #include <iostream>
 #include <vector>
 #include <string>
