@@ -12,8 +12,18 @@
 #include <cmath>
 #include <climits>
 #include <cstdlib>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <complex>
+#include <cstring>
+#include <functional>
 #include <numeric>
-# define ull unsigned long long
-# define ll long long
-const ll mod = 1e9 + 7;
+#include <random>
 using namespace std;
+
+# define ll long long
+# define ull unsigned long long
+
+const ll mod = 1e9 + 7;
