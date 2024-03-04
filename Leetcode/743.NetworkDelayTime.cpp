@@ -20,7 +20,7 @@ public:
 		k -= 1;
 		vector<int> cost(n, 2e9);
 		vector<int> vis(n, false);
-		priority_queue< vector<int> > pr;
+		priority_queue< vector<int>, vector<vector<int>>, greater<vector<int>> > pr;
 		cost[k] = 0;
 		pr.push({0, k});
 		int ans = 0, reached = 0;
