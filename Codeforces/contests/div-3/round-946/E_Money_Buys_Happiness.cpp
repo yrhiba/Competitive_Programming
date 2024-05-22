@@ -7,7 +7,7 @@ input: standard input
 output: standard output
 
 link to the problem:
-https://codeforces.com/contest/1974/problem/A
+https://codeforces.com/contest/1974/problem/E
 */
 #include <iostream>
 #include <vector>
