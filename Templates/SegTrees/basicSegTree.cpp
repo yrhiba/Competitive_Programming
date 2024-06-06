@@ -1,7 +1,9 @@
 #include "header.hpp"
 
-struct segTree {
+struct segTree
+{
 	int identity = 0;
+
 	int fn(int a, int b) {
 		return a + b;
 	}
@@ -51,6 +53,7 @@ struct segTree {
 		int b = query(2*node+1, mid+1, end, l, r);
 		return fn(a, b);
 	}
+
 	int query(int l, int r) {
 		return query(1, 0, n-1, l, r);
 	}
