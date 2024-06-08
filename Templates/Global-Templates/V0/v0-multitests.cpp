@@ -24,6 +24,7 @@ using namespace std;
 # define rall(x) rbegin(x), rend(x)
 typedef long long ll;
 const int mod = int(1e9 + 7);
+const string directions[8] {"D","R","U","L","DR","DL","TL","TR"};
 const int dr[8] {1, 0, -1, 0, 1, 1, -1, -1};
 const int dc[8] {0, 1, 0, -1, 1, -1, -1, 1};
 /* input - output */
@@ -41,6 +42,18 @@ ll gcd(ll a, ll b)
 ll lcm(ll a, ll b)
 {
 	return ((a*b)/gcd(a, b));
+}
+ll log2(ll x)
+{
+	ll r = ((x > 0) ? 0 : 1);
+	while (x) x /= 2, r += 1;
+	return (r);
+}
+ll log10(ll x)
+{
+	ll r = ((x > 0) ? 0 : 1);
+	while (x) x /= 10, r += 1;
+	return (r);
 }
 ll pow(ll x, ll p)
 {
@@ -77,6 +90,11 @@ int main()
 	cin.tie(0)->sync_with_stdio(0);
 	preSetup();
 	ll t; cin >> t; cin.ignore();
-	while (t--) solve();
+	for (ll tc = 1; tc <= t; t++)
+	{
+		// cerr << "test: " << tc << "\n";
+		solve();
+		// cerr << "#####" << "\n";
+	}
 	return (0);
 }
