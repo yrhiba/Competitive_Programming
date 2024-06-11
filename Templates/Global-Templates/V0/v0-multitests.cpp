@@ -90,7 +90,7 @@ int main()
 	cin.tie(0)->sync_with_stdio(0);
 	preSetup();
 	ll t; cin >> t; cin.ignore();
-	for (ll tc = 1; tc <= t; t++)
+	for (ll tc = 1; tc <= t; tc++)
 	{
 		// cerr << "test: " << tc << "\n";
 		solve();
