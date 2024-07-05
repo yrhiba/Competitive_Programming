@@ -24,6 +24,7 @@ using namespace std;
 # define rall(x) rbegin(x), rend(x)
 typedef long long ll;
 const int mod = int(1e9 + 7);
+const double PI = 3.14159265359;
 const string directions[8] {"D","R","U","L","DR","DL","TL","TR"};
 const int dr[8] {1, 0, -1, 0, 1, 1, -1, -1};
 const int dc[8] {0, 1, 0, -1, 1, -1, -1, 1};
