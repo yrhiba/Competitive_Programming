@@ -1,60 +1,41 @@
 #include "header.hpp"
 
-struct segTree
+ll fn(ll a, ll b)
 {
-	int identity = 0;
-
-	int fn(int a, int b) {
-		return a + b;
+	return (a + b);
+}
+void segSetup(vector<ll> &seg, ll left, ll right, ll cur)
+{
+	if (left == right)
+	{
+		seg[cur] = 0;
+		return;
 	}
-
-	int n;
-	vector<int> all;
-	vector<int> s;
-
-	segTree(vector<int> &a) {
-		n = a.size();
-		s.resize(4 * n, identity);
-		all = a;
-		build(1, 0, n-1, 0, n-1);
+	ll mid = left + (right - left) / 2;
+	segSetup(seg, left, mid, cur*2+1);
+	segSetup(seg, mid+1, right, cur*2+2);
+	seg[cur] = fn(seg[cur*2+1], seg[cur*2+2]);
+}
+void segUpdate(vector<ll> &seg, ll idx, ll value, ll left, ll right, ll cur)
+{
+	if (left == right)
+	{
+		if (left == idx) seg[cur] = value;
+		return ;
 	}
-
-	void build(int node, int start, int end, const int l, const int r) {
-		if (start > r || end < l)
-			return ;
-		
-		if (start == end) {
-			s[node] = all[start];
-			return ;
-		}
-
-		int mid = (start + end) / 2;
-		build(2*node, start, mid, l, r);
-		build(2*node+1, mid + 1, end, l, r);
-		s[node] = fn(s[2*node], s[2*node+1]);
-	}
-
-	void update(int i, int val) {
-		all[i] = val;
-		build(1, 0, n-1, i, i);
-	}
-
-	int query(int node, int start, int end, const int l, const int r) {
-
-		if (start > r || end < l)
-			return identity;
-
-		if (start >= l && end <= r)
-			return s[node];
-
-		int mid = (start + end) / 2;
-
-		int a = query(2*node, start, mid, l, r);
-		int b = query(2*node+1, mid+1, end, l, r);
-		return fn(a, b);
-	}
-
-	int query(int l, int r) {
-		return query(1, 0, n-1, l, r);
-	}
-};
+	if (idx < left || idx > right) return ;
+	ll mid = left + (right - left) / 2;
+	segUpdate(seg, idx, value, left, mid, cur*2+1);
+	segUpdate(seg, idx, value, mid+1, right, cur*2+2);
+	seg[cur] = fn(seg[cur*2+1], seg[cur*2+2]);
+}
+ll segQuery(vector<ll> &seg, const ll &ql, const ll &qr, ll left, ll right, ll cur)
+{
+	if (ql <= left && right <= qr) return seg[cur];
+	if (ql > right || left > qr) return (0);
+	ll mid = left + (right - left) / 2;
+	return fn(
+		segQuery(seg, ql, qr, left, mid, cur*2+1),
+		segQuery(seg, ql, qr, mid+1, right, cur*2+2)
+	);
+}
