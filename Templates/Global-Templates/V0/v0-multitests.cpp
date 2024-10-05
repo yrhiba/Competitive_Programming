@@ -44,19 +44,19 @@ ll lcm(ll a, ll b)
 {
 	return ((a*b)/gcd(a, b));
 }
-ll log2(ll x)
+ll lg2(ll x)
 {
 	ll r = ((x > 0) ? 0 : 1);
 	while (x) x /= 2, r += 1;
 	return (r);
 }
-ll log10(ll x)
+ll lg10(ll x)
 {
 	ll r = ((x > 0) ? 0 : 1);
 	while (x) x /= 10, r += 1;
 	return (r);
 }
-ll pow(ll x, ll p)
+ll power(ll x, ll p)
 {
 	if (p == 0) return (1);
 	ll res = pow(x, p/2);
